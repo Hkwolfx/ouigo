@@ -1,33 +1,33 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
-import Seat from '../components/Seat';
+import type { Meta, StoryObj } from '@storybook/react';
+import { fn } from '@storybook/test';
 
-export default {
-  title: 'Seat',
-  component: Seat,
+import { Header } from './Header';
+
+const meta = {
+  title: 'Example/Header',
+  component: Header,
+  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
   parameters: {
-    // Optional parameter to center the component in the Canvas
-    layout: 'centered',
+    // More on how to position stories at: https://storybook.js.org/docs/configure/story-layout
+    layout: 'fullscreen',
   },
-} satisfies Meta<typeof Seat>;
+  args: {
+    onLogin: fn(),
+    onLogout: fn(),
+    onCreateAccount: fn(),
+  },
+} satisfies Meta<typeof Header>;
 
+export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Available: Story = {
+export const LoggedIn: Story = {
   args: {
-    status: 'available',
+    user: {
+      name: 'Jane Doe',
+    },
   },
 };
 
-export const Selected: Story = {
-  args: {
-    status: 'selected',
-  },
-};
-
-export const Unavailable: Story = {
-  args: {
-    status: 'unavailable',
-  },
-};
+export const LoggedOut: Story = {};
