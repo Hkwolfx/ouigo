@@ -1,8 +1,7 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 import Seat from '../components/Seat';
 
-export default {
+const meta: Meta<typeof Seat> = {
   title: 'Seat',
   component: Seat,
   tags: ['autodocs'],
@@ -10,24 +9,33 @@ export default {
     // Optional parameter to center the component in the Canvas
     layout: 'centered',
   },
-} satisfies Meta<typeof Seat>;
+  argTypes: {
+    status: { control: 'select', options: ['available', 'selected', 'unavailable'] },
+    onClick: { action: 'clicked' }
+  },
+};
+
+export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Available: Story = {
   args: {
     status: 'available',
+    onClick: () => alert('Seat clicked!'),
   },
 };
 
 export const Selected: Story = {
   args: {
     status: 'selected',
+    onClick: () => alert('Seat clicked!'),
   },
 };
 
 export const Unavailable: Story = {
   args: {
     status: 'unavailable',
+    onClick: () => alert('Seat clicked!'),
   },
 };
