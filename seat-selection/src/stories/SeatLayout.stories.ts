@@ -15,15 +15,20 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const seatTemplate = [
-  ['available', 'invisible', 'available'],
-  ['unavailable', 'unavailable', 'available'],
-  ['available', 'available', 'available'],
-  ['unavailable', 'unavailable', 'available'],
-  ['unavailable', 'unavailable', 'available'],
-  ['available', 'available', 'available'],
-  ['available', 'available', 'available'],
-  ['available', 'available', 'available'],
-  ['available', 'available', 'available'],
+    ['available', 'available', 'invisible', 'available', 'available'],
+    ['available', 'unavailable', 'invisible', 'available', 'unavailable'],
+    ['unavailable', 'available', 'invisible', 'available', 'available'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['unavailable', 'available', 'invisible', 'unavailable', 'available'],
+    ['available', 'available', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+    ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
 ];
 
 export const TemplateLayout: Story = {
