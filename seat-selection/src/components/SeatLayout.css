@@ -1,9 +1,49 @@
-.seat-layout {
+/* SeatLayout.css */
+.seat-layout-background {
+    background-image: url('https://mdw.api-fr.ouigo.com/api/data/template?floor=0&nbFloors=2&url=https%3a%2f%2ftemplate.ouigo.com%2ftemplate%2fvoiture1transp_230405094830471.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .seat-layout {
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    position: absolute;
   }
   
   .seat-row {
     display: flex;
+    gap: 10px;
   }
   
+  .seat {
+    width: 25px; /* Adjust size as needed */
+    height: 25px; /* Adjust size as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .seat-available {
+    background-color: green;
+  }
+  
+  .seat-selected {
+    background-color: blue;
+  }
+  
+  .seat-unavailable {
+    background-color: grey;
+  }
+
+  .seat-invisible {
+    visibility: hidden;
+  }

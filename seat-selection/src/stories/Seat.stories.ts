@@ -10,8 +10,8 @@ const meta: Meta<typeof Seat> = {
     layout: 'centered',
   },
   argTypes: {
-    status: { control: 'select', options: ['available', 'selected', 'unavailable'] },
-    onClick: { action: 'clicked' }
+    status: { control: 'select', options: ['available', 'selected', 'unavailable', 'invisible'] },
+    onClick: { action: 'clicked' },
   },
 };
 
@@ -36,6 +36,13 @@ export const Selected: Story = {
 export const Unavailable: Story = {
   args: {
     status: 'unavailable',
+    onClick: () => alert('Seat clicked!'),
+  },
+};
+
+export const Invisible: Story = {
+  args: {
+    status: 'invisible',
     onClick: () => alert('Seat clicked!'),
   },
 };

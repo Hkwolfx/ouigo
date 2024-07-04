@@ -1,29 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SeatLayout from './components/SeatLayout';
-import './App.css';
 
-const initialLayout = [
-  ['available', 'available', 'unavailable'],
-  ['available', 'selected', 'available'],
-  ['unavailable', 'available', 'available'],
+const seatTemplate = [
+  ['available', 'available', 'invisible', 'available', 'available'],
+  ['available', 'unavailable', 'invisible', 'available', 'unavailable'],
+  ['unavailable', 'available', 'invisible', 'available', 'available'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['unavailable', 'available', 'invisible', 'unavailable', 'available'],
+  ['available', 'available', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  ['invisible', 'invisible', 'invisible', 'invisible', 'invisible'],
+  
+  
+  
 ];
 
 const App: React.FC = () => {
-  const [layout, setLayout] = useState(initialLayout);
-
   const handleSeatClick = (row: number, col: number) => {
-    const newLayout = [...layout];
-    if (newLayout[row][col] === 'available') {
-      newLayout[row][col] = 'selected';
-    } else if (newLayout[row][col] === 'selected') {
-      newLayout[row][col] = 'available';
-    }
-    setLayout(newLayout);
+    console.log(`Seat clicked: row ${row}, col ${col}`);
   };
 
   return (
     <div className="App">
-      <SeatLayout layout={layout} onSeatClick={handleSeatClick} />
+      <SeatLayout layout={seatTemplate} onSeatClick={handleSeatClick} />
     </div>
   );
 };
