@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import SeatLayout from './components/SeatLayout';
 import './App.css';
 
-function App() {
+const initialLayout = [
+  ['available', 'available', 'unavailable'],
+  ['available', 'selected', 'available'],
+  ['unavailable', 'available', 'available'],
+];
+
+const App: React.FC = () => {
+  const [layout, setLayout] = useState(initialLayout);
+
+  const handleSeatClick = (row: number, col: number) => {
+    const newLayout = [...layout];
+    if (newLayout[row][col] === 'available') {
+      newLayout[row][col] = 'selected';
+    } else if (newLayout[row][col] === 'selected') {
+      newLayout[row][col] = 'available';
+    }
+    setLayout(newLayout);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SeatLayout layout={layout} onSeatClick={handleSeatClick} />
     </div>
   );
-}
+};
 
 export default App;
