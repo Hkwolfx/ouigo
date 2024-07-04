@@ -1,0 +1,9 @@
+.seat-layout {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .seat-row {
+    display: flex;
+  }
+  
