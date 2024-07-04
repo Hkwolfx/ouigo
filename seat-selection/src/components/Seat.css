@@ -1,0 +1,21 @@
+.seat {
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .seat.available {
+    background-color: green;
+  }
+  
+  .seat.selected {
+    background-color: blue;
+  }
+  
+  .seat.unavailable {
+    background-color: grey;
+    cursor: not-allowed;
+  }
+  
