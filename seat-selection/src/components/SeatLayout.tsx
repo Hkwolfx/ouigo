@@ -9,19 +9,21 @@ interface SeatLayoutProps {
 
 const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
   return (
-    <div className="seat-layout-background">
-      <div className="seat-layout">
-        {layout.map((row, rowIndex) => (
-          <div key={rowIndex} className="seat-row">
-            {row.map((seat, colIndex) => (
-              <Seat
-                key={colIndex}
-                status={seat as 'available' | 'selected' | 'unavailable' | 'invisible'}
-                onClick={() => onSeatClick(rowIndex, colIndex)}
-              />
-            ))}
-          </div>
-        ))}
+    <div className="background">
+      <div className="seat-layout-background">
+        <div className="seat-layout">
+          {layout.map((row, rowIndex) => (
+            <div key={rowIndex} className="seat-row">
+              {row.map((seat, colIndex) => (
+                <Seat
+                  key={colIndex}
+                  status={seat as 'available' | 'selected' | 'unavailable' | 'invisible'}
+                  onClick={() => onSeatClick(rowIndex, colIndex)}
+                />
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
