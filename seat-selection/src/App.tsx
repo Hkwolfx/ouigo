@@ -1,5 +1,6 @@
 import React from 'react';
 import SeatLayout from './components/SeatLayout';
+import SeatNumbers from './components/SeatNumbers';
 
 const seatTemplate = [
   ['available', 'available', 'invisible', 'available', 'available'],
@@ -35,7 +36,10 @@ const App: React.FC = () => {
 
   return (
     <div className="App">
+      <>
       <SeatLayout layout={seatTemplate} onSeatClick={handleSeatClick} />
+      {/* <SeatNumbers /> */}
+      </>
     </div>
   );
 };

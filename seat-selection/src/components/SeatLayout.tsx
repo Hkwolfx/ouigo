@@ -1,5 +1,6 @@
 import React from 'react';
 import Seat from './Seat';
+import SeatNumbers from './SeatNumbers';
 import './SeatLayout.css';
 
 interface SeatLayoutProps {
@@ -9,8 +10,9 @@ interface SeatLayoutProps {
 
 const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
   return (
-    <div className="background">
-      <div className="seat-layout-background">
+    <div className="seat-layout-background">
+      <div className="seat-layout-container">
+        
         <div className="seat-layout">
           {layout.map((row, rowIndex) => (
             <div key={rowIndex} className="seat-row">
@@ -24,7 +26,9 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
             </div>
           ))}
         </div>
+       
       </div>
+      <SeatNumbers />
     </div>
   );
 };
