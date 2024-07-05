@@ -65,7 +65,12 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
     setCurrentWagon(wagon); // Mise à jour du numéro de wagon en cours
 
     const newLayout = originalLayout.map(row => 
-      row.map(seat => seat === 'available' ? 'unavailable' : seat === 'unavailable' ? 'available' : seat)
+      row.map(seat => {
+        if (seat === 'invisible') {
+          return seat; // Les sièges invisibles ne changent pas
+        }
+        return Math.random() < 0.5 ? 'available' : 'unavailable';
+      })
     );
 
     setCurrentLayout(newLayout);
