@@ -12,11 +12,12 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
   const [currentLayout, setCurrentLayout] = useState(layout);
   const [originalLayout, setOriginalLayout] = useState(layout);
   const [selectedSeat, setSelectedSeat] = useState<{ row: number, col: number, number: number } | null>(null);
+  const [seatNumber, setSeatNumber] = useState<number>(1);
+  const [currentWagon, setCurrentWagon] = useState<number>(1); // Nouvelle state pour le numéro de wagon
 
   const handleSeatClick = (row: number, col: number) => {
-    // Vérifiez si le siège est indisponible
     if (currentLayout[row][col] === 'unavailable') {
-      return; // Ne rien faire si le siège est indisponible
+      return;
     }
 
     const randomSeatNumber = Math.floor(Math.random() * 99) + 1;
@@ -61,6 +62,7 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
 
   const handleWagonChange = (wagon: number) => {
     console.log(`Changed to wagon ${wagon}`);
+    setCurrentWagon(wagon); // Mise à jour du numéro de wagon en cours
 
     const newLayout = originalLayout.map(row => 
       row.map(seat => seat === 'available' ? 'unavailable' : seat === 'unavailable' ? 'available' : seat)
@@ -73,6 +75,9 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
 
   return (
     <div className="seat-layout-background">
+      <div className="current-wagon">
+        {currentWagon}
+      </div>
       <div className="seat-layout-container">
         <div className="seat-layout">
           {currentLayout.map((row, rowIndex) => (
