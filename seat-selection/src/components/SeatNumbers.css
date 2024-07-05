@@ -10,13 +10,18 @@
   }
   
   .seat-number {
-    width: 40px; 
-    height: 40px; 
+    width: 40px;
+    height: 64px !important;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 5px;
+    padding: 0px;
   }
   
+  .seat-number.active {
+    background-color: #007b8f; 
+    color: white;
+  }
