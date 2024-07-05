@@ -11,9 +11,16 @@ interface SeatLayoutProps {
 const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
   const [currentLayout, setCurrentLayout] = useState(layout);
   const [originalLayout, setOriginalLayout] = useState(layout);
-  const [selectedSeat, setSelectedSeat] = useState<{ row: number, col: number } | null>(null);
+  const [selectedSeat, setSelectedSeat] = useState<{ row: number, col: number, number: number } | null>(null);
 
   const handleSeatClick = (row: number, col: number) => {
+    // Vérifiez si le siège est indisponible
+    if (currentLayout[row][col] === 'unavailable') {
+      return; // Ne rien faire si le siège est indisponible
+    }
+
+    const randomSeatNumber = Math.floor(Math.random() * 99) + 1;
+
     setCurrentLayout(prevLayout => 
       prevLayout.map((r, rowIndex) => 
         r.map((seat, colIndex) => {
@@ -28,9 +35,8 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
       )
     );
 
-    setSelectedSeat({ row, col });
+    setSelectedSeat({ row, col, number: randomSeatNumber });
 
-    // Delay the confirmation prompt to ensure the state update is rendered
     setTimeout(() => {
       const userConfirmed = window.confirm('Voulez-vous réserver cette place ?');
 
@@ -54,16 +60,15 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
   };
 
   const handleWagonChange = (wagon: number) => {
-    alert(`Changed to wagon ${wagon}`);
+    console.log(`Changed to wagon ${wagon}`);
 
-    // Reset the selection and change the seat layout for the new wagon
     const newLayout = originalLayout.map(row => 
       row.map(seat => seat === 'available' ? 'unavailable' : seat === 'unavailable' ? 'available' : seat)
     );
-    
+
     setCurrentLayout(newLayout);
     setOriginalLayout(newLayout);
-    setSelectedSeat(null); // Reset the selected seat
+    setSelectedSeat(null);
   };
 
   return (
@@ -76,6 +81,7 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
                 <Seat
                   key={colIndex}
                   status={seat as 'available' | 'selected' | 'unavailable' | 'invisible'}
+                  number={selectedSeat && selectedSeat.row === rowIndex && selectedSeat.col === colIndex ? selectedSeat.number : undefined}
                   onClick={() => {
                     handleSeatClick(rowIndex, colIndex);
                     onSeatClick(rowIndex, colIndex);
