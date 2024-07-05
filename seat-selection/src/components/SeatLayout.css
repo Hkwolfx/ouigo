@@ -41,8 +41,8 @@
 }
 
 .seat {
-  width: 15px; /* Ajuster la taille selon les besoins */
-  height: 15px; /* Ajuster la taille selon les besoins */
+  width: 15px; 
+  height: 15px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,7 +52,7 @@
 .seat-available {
   background-color: green;
   background-size: cover;
-  background-image: url('../stories/assets/seat_top_view_with_contrast.png'); /* Remplacez par le chemin correct */
+  background-image: url('../stories/assets/seat_top_view_with_contrast.png');
 }
 
 .seat-selected {
@@ -61,7 +61,7 @@
 
 .seat-unavailable {
   background-size: cover;
-  background-image: url('../stories/assets/seat_unavailable.png'); /* Remplacez par le chemin correct */
+  background-image: url('../stories/assets/seat_unavailable.png');
 }
 
 .seat-invisible {
@@ -77,8 +77,8 @@
 }
 
 .seat-number {
-  width: 40px; /* Ajuster la taille selon les besoins */
-  height: 40px; /* Ajuster la taille selon les besoins */
+  width: 40px; 
+  height: 40px; 
   display: flex;
   justify-content: center;
   align-items: center;
