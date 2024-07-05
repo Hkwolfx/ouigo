@@ -19,7 +19,7 @@ const SeatNumbers: React.FC<SeatNumbersProps> = ({ onWagonChange }) => {
       {numbers.map((number) => (
         <div 
           key={number} 
-          className={`seat-number ${activeNumber === number ? 'active' : ''}`} 
+          className={`seat-number ${activeNumber === number ? 'active' : ''} ${number === 1 ? 'special-top' : number === 8 ? 'special-bottom' : ''}`} 
           onClick={() => handleClick(number)}
         >
           {number}
