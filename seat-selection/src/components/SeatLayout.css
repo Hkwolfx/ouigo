@@ -1,5 +1,13 @@
 /* SeatLayout.css */
 
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: lightgrey;
+}
+
 .seat-layout-background {
   background-image: url('https://mdw.api-fr.ouigo.com/api/data/template?floor=0&nbFloors=1&url=https%3a%2f%2ftemplate.ouigo.com%2ftemplate%2fFloorplan+OSLO_221121154612019.png');
   background-size: contain;
@@ -61,12 +69,12 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  margin-right: 20px; 
+  margin-right: 20px; /* Ajuster selon vos besoins */
 }
 
 .seat-number {
-  width: 40px; 
-  height: 40px; 
+  width: 40px; /* Ajuster la taille selon les besoins */
+  height: 40px; /* Ajuster la taille selon les besoins */
   display: flex;
   justify-content: center;
   align-items: center;

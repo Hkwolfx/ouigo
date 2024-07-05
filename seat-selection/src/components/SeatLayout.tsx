@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Seat from './Seat';
 import SeatNumbers from './SeatNumbers';
 import './SeatLayout.css';
@@ -9,12 +9,25 @@ interface SeatLayoutProps {
 }
 
 const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
+  const [currentLayout, setCurrentLayout] = useState(layout);
+
+  const handleWagonChange = (wagon: number) => {
+    alert(`Changed to wagon ${wagon}`);
+
+    // change the seat layout for the new wagon
+    const newLayout = currentLayout.map(row => 
+      row.map(seat => seat === 'available' ? 'unavailable' : seat === 'unavailable' ? 'available' : seat)
+    );
+    
+    setCurrentLayout(newLayout);
+  };
+
   return (
     <div className="seat-layout-background">
       <div className="seat-layout-container">
         
         <div className="seat-layout">
-          {layout.map((row, rowIndex) => (
+          {currentLayout.map((row, rowIndex) => (
             <div key={rowIndex} className="seat-row">
               {row.map((seat, colIndex) => (
                 <Seat
@@ -26,9 +39,8 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
             </div>
           ))}
         </div>
-       
+        <SeatNumbers onWagonChange={handleWagonChange} />
       </div>
-      <SeatNumbers />
     </div>
   );
 };
