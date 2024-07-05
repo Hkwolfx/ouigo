@@ -27,7 +27,30 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
         })
       )
     );
+
     setSelectedSeat({ row, col });
+
+    // Delay the confirmation prompt to ensure the state update is rendered
+    setTimeout(() => {
+      const userConfirmed = window.confirm('Voulez-vous réserver cette place ?');
+
+      if (userConfirmed) {
+        alert('Merci d\'avoir joué avec la démo !');
+      } else {
+        setCurrentLayout(prevLayout => 
+          prevLayout.map((r, rowIndex) => 
+            r.map((seat, colIndex) => {
+              if (rowIndex === row && colIndex === col) {
+                return originalLayout[rowIndex][colIndex];
+              }
+              return seat;
+            })
+          )
+        );
+        setSelectedSeat(null);
+        alert('Veuillez sélectionner une autre place.');
+      }
+    }, 0);
   };
 
   const handleWagonChange = (wagon: number) => {
