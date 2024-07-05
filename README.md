@@ -1,19 +1,19 @@
 # ouigo
 
 
-npx create-react-app seat-selection --template typescript
+`npx create-react-app seat-selection --template typescript`
 
-cd seat-selection
+`cd seat-selection`
 
-npx sb init
+`npx sb init`
 
 ![image](https://github.com/Hkwolfx/ouigo/assets/55136269/e0acd747-147f-4931-aa3d-f8e522a61e2e)
 
 # to run 
 
-npm run storybook
+`npm run storybook`
 
-npm run start
+`npm run start`
 
 
 # storybook showcase
