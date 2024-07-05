@@ -51,6 +51,8 @@
 
 .seat-available {
   background-color: green;
+  background-size: cover;
+  background-image: url('../stories/assets/seat_top_view_with_contrast.png'); /* Remplacez par le chemin correct */
 }
 
 .seat-selected {
@@ -58,7 +60,8 @@
 }
 
 .seat-unavailable {
-  background-color: grey;
+  background-size: cover;
+  background-image: url('../stories/assets/seat_unavailable.png'); /* Remplacez par le chemin correct */
 }
 
 .seat-invisible {
