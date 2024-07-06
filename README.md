@@ -11,6 +11,8 @@
 
 # to run 
 
+`git clone https://github.com/Hkwolfx/ouigo.git`
+
 `npm run storybook`
 
 `npm run start`
