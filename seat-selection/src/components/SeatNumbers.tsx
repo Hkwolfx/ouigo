@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './SeatNumbers.css';
+import React, { useState } from "react";
+import "./SeatNumbers.css";
 
 interface SeatNumbersProps {
   onWagonChange: (wagon: number) => void;
@@ -17,9 +17,9 @@ const SeatNumbers: React.FC<SeatNumbersProps> = ({ onWagonChange }) => {
   return (
     <div className="seat-numbers">
       {numbers.map((number) => (
-        <div 
-          key={number} 
-          className={`seat-number ${activeNumber === number ? 'active' : ''} ${number === 1 ? 'special-top' : number === 8 ? 'special-bottom' : ''}`} 
+        <div
+          key={number}
+          className={`seat-number ${activeNumber === number ? "active" : ""} ${number === 1 ? "special-top" : number === 8 ? "special-bottom" : ""}`}
           onClick={() => handleClick(number)}
         >
           {number}
