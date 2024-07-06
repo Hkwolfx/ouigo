@@ -1,0 +1,118 @@
+/* SeatLayout.css */
+
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: lightgrey;
+}
+
+.seat-layout-background {
+  background-image: url('https://mdw.api-fr.ouigo.com/api/data/template?floor=0&nbFloors=1&url=https%3a%2f%2ftemplate.ouigo.com%2ftemplate%2fFloorplan+OSLO_221121154612019.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 199px;
+  height: 1500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.seat-layout-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.seat-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+
+.seat-row {
+  display: flex;
+  gap: 6px;
+}
+
+.seat {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15%;
+}
+
+.seat-available {
+  background-color: green;
+  background-size: cover;
+  background-image: url('../stories/assets/seat_top_view_with_contrast.png');
+  cursor: pointer;
+}
+
+.seat-selected {
+  background-color: blue;
+}
+
+.seat-unavailable {
+  background-size: cover;
+  background-image: url('../stories/assets/seat_unavailable.png');
+}
+
+.seat-invisible {
+  visibility: hidden;
+}
+
+.seat-numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-right: 20px; /* Ajuster selon vos besoins */
+}
+
+.seat-number {
+  width: 40px; 
+  height: 40px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.seat-number-individual {
+  width: 32px; 
+  height: 32px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  border-radius: 5px;
+  color:white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.current-wagon {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.power-outlet {
+  cursor: pointer;
+}

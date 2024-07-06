@@ -1,6 +1,18 @@
-import React from 'react';
-import SeatLayout from './components/SeatLayout';
-import SeatNumbers from './components/SeatNumbers';
+import type { Meta, StoryObj } from '@storybook/react';
+import SeatLayout from '../components/SeatLayout';
+
+const meta: Meta<typeof SeatLayout> = {
+  title: 'SeatLayout',
+  component: SeatLayout,
+  tags: ['autodocs'],
+  parameters: {
+    layout: 'centered', // Centrer le composant
+  },
+};
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
 
 const seatTemplate = [
   [{ status: 'available', hasPowerOutlet: true }, { status: 'available' }, { status: 'invisible' }, { status: 'available' }, { status: 'available', hasPowerOutlet: false }],
@@ -29,18 +41,11 @@ const seatTemplate = [
   [{ status: 'unavailable' }, { status: 'available', hasPowerOutlet: true }, { status: 'invisible' }, { status: 'unavailable' }, { status: 'available' }],
 ];
 
-const App: React.FC = () => {
-  const handleSeatClick = (row: number, col: number) => {
-    console.log(`Seat clicked: row ${row}, col ${col}`);
-  };
-
-  return (
-    <div className="App">
-      <>
-      <SeatLayout layout={seatTemplate} onSeatClick={handleSeatClick} />
-      </>
-    </div>
-  );
+export const TemplateLayout: Story = {
+  args: {
+    layout: seatTemplate,
+    onSeatClick: (row: number, col: number) => {
+      console.log(`Seat clicked: row ${row}, col ${col}`);
+    },
+  },
 };
-
-export default App;
