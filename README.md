@@ -15,6 +15,8 @@
 
 `npm run start`
 
+Please try the storybook !
+
 # Demo Live
 
 
