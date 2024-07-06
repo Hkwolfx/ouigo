@@ -5,7 +5,7 @@ import Modal from "./Modal";
 import "./SeatLayout.css";
 
 interface SeatLayoutProps {
-  layout: string[][];
+  layout: { status: string; hasPowerOutlet?: boolean }[][];
   onSeatClick: (row: number, col: number) => void;
 }
 
@@ -21,7 +21,7 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State pour la modal
 
   const handleSeatClick = (row: number, col: number) => {
-    if (currentLayout[row][col] === "unavailable") {
+    if (currentLayout[row][col].status === "unavailable") {
       return;
     }
 
@@ -31,7 +31,7 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
       prevLayout.map((r, rowIndex) =>
         r.map((seat, colIndex) => {
           if (rowIndex === row && colIndex === col) {
-            return "selected";
+            return { ...seat, status: "selected" };
           }
           if (
             selectedSeat &&
@@ -78,10 +78,12 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
 
     const newLayout = originalLayout.map((row) =>
       row.map((seat) => {
-        if (seat === "invisible") {
+        if (seat.status === "invisible") {
           return seat; // Les sièges invisibles ne changent pas
         }
-        return Math.random() < 0.5 ? "available" : "unavailable";
+        return Math.random() < 0.5
+          ? { ...seat, status: "available" }
+          : { ...seat, status: "unavailable" };
       })
     );
 
@@ -100,13 +102,8 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
               {row.map((seat, colIndex) => (
                 <Seat
                   key={colIndex}
-                  status={
-                    seat as
-                      | "available"
-                      | "selected"
-                      | "unavailable"
-                      | "invisible"
-                  }
+                  status={seat.status as "available" | "selected" | "unavailable" | "invisible"}
+                  hasPowerOutlet={seat.hasPowerOutlet}
                   number={
                     selectedSeat &&
                     selectedSeat.row === rowIndex &&
@@ -125,11 +122,7 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
         </div>
         <SeatNumbers onWagonChange={handleWagonChange} />
       </div>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={handleClose}
-        onConfirm={handleConfirm}
-      />
+      <Modal isOpen={isModalOpen} onClose={handleClose} onConfirm={handleConfirm} />
     </div>
   );
 };

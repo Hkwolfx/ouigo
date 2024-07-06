@@ -5,9 +5,10 @@ interface SeatProps {
   onClick: () => void;
   number?: number;
   style?: React.CSSProperties;
+  hasPowerOutlet?: boolean;
 }
 
-const Seat: React.FC<SeatProps> = ({ status, onClick, number, style }) => {
+const Seat: React.FC<SeatProps> = ({ status, onClick, number, style, hasPowerOutlet }) => {
   const getSeatClass = () => {
     switch (status) {
       case "available":
@@ -28,6 +29,7 @@ const Seat: React.FC<SeatProps> = ({ status, onClick, number, style }) => {
       {status === "selected" && number && (
         <span className="seat-number-individual">{number}</span>
       )}
+      {status === "available" && hasPowerOutlet && <span className="power-outlet">⚡</span>}
     </div>
   );
 };

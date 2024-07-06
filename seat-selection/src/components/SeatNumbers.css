@@ -7,6 +7,7 @@
     gap: 10px;
     margin-right: -64px !important;
     margin: 25px;
+    cursor: pointer;
   }
   
   .seat-number {
@@ -19,11 +20,13 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 0px;
+    cursor: pointer;
   }
   
   .seat-number.active {
     background-color: #007b8f; 
     color: white;
+    cursor: pointer;
   }
 
   .seat-number.special-top {
@@ -31,6 +34,7 @@
     background-color: white; 
     border: 1px solid #087187;
     color: black; 
+    cursor: pointer;
   }
   
   .seat-number.special-bottom {
@@ -38,15 +42,19 @@
     background-color: white; 
     border: 1px solid #087187;
     color: black; 
+    cursor: pointer;
+
   }
 
   .seat-number.special-top.active {
     background-color: #087187; 
     color: white;
+    cursor: pointer;
   }
 
   .seat-number.special-bottom.active {
     background-color: #087187; 
     color: white;
+    cursor: pointer;
   }
 

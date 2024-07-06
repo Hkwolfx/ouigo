@@ -52,6 +52,7 @@
   background-color: green;
   background-size: cover;
   background-image: url('../stories/assets/seat_top_view_with_contrast.png');
+  cursor: pointer;
 }
 
 .seat-selected {
@@ -96,6 +97,7 @@
   border-radius: 5px;
   color:white;
   font-weight: bold;
+  cursor: pointer;
 }
 
 .current-wagon {
@@ -109,4 +111,8 @@
   padding: 5px 10px;
   border-radius: 5px;
   z-index: 1;
+}
+
+.power-outlet {
+  cursor: pointer;
 }

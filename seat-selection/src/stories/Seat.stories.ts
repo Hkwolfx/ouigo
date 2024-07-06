@@ -12,6 +12,7 @@ const meta: Meta<typeof Seat> = {
   argTypes: {
     status: { control: 'select', options: ['available', 'selected', 'unavailable', 'invisible'] },
     onClick: { action: 'clicked' },
+    hasPowerOutlet: { control: 'boolean' },
   },
 };
 
@@ -22,27 +23,28 @@ type Story = StoryObj<typeof meta>;
 export const Available: Story = {
   args: {
     status: 'available',
-    onClick: () => alert('Seat clicked!'),
+    hasPowerOutlet: true,
+    onClick: () => console.log('Seat clicked!'),
   },
 };
 
 export const Selected: Story = {
   args: {
     status: 'selected',
-    onClick: () => alert('Seat clicked!'),
+    onClick: () => console.log('Seat clicked!'),
   },
 };
 
 export const Unavailable: Story = {
   args: {
     status: 'unavailable',
-    onClick: () => alert('Seat clicked!'),
+    onClick: () => console.log('Seat clicked!'),
   },
 };
 
 export const Invisible: Story = {
   args: {
     status: 'invisible',
-    onClick: () => alert('Seat clicked!'),
+    onClick: () => console.log('Seat clicked!'),
   },
 };
