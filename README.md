@@ -18,11 +18,14 @@
 
 # storybook showcase
 
-![image](https://github.com/Hkwolfx/ouigo/assets/55136269/200b5006-2250-4eba-b36e-55d2c51dcabd)
+![image](https://github.com/Hkwolfx/ouigo/assets/55136269/b59cfce2-87fd-4ee4-8cb5-31240c8f10b2)
 
 
-![image](https://github.com/Hkwolfx/ouigo/assets/55136269/9bc38e8f-9adb-40ea-88e3-ef9956f3ef0e)
+
+![image](https://github.com/Hkwolfx/ouigo/assets/55136269/dd89cc00-3d68-4580-9373-53717e650365)
 
 
-![image](https://github.com/Hkwolfx/ouigo/assets/55136269/92435704-2483-4912-8a3b-aad43a7842b1)
+
+![image](https://github.com/Hkwolfx/ouigo/assets/55136269/862130cd-ff64-49f2-aa6d-0ecea2822d8e)
+
 
