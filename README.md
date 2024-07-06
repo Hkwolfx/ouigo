@@ -29,3 +29,6 @@
 ![image](https://github.com/Hkwolfx/ouigo/assets/55136269/862130cd-ff64-49f2-aa6d-0ecea2822d8e)
 
 
+![image](https://github.com/Hkwolfx/ouigo/assets/55136269/dbf1721f-97f6-4641-b113-9e8220822b63)
+
+
