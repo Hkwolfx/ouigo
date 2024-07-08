@@ -19,6 +19,8 @@
 
 Please try the storybook !
 
+PS : Je n'ai pas pris en compte l'accessibilité pour aller vite.
+
 # Demo Live
 
 
