@@ -35,11 +35,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="Container">
+    
       <>
+      <div className="Container">
       <SeatLayout layout={seatTemplate} onSeatClick={handleSeatClick} />
+      </div>
       </>
-    </div>
+    
   );
 };
 
