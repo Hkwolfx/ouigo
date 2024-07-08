@@ -17,8 +17,8 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
     col: number;
     number: number;
   } | null>(null);
-  const [currentWagon, setCurrentWagon] = useState<number>(1); // Nouvelle state pour le numéro de wagon
-  const [isModalOpen, setIsModalOpen] = useState(false); // State pour la modal
+  const [currentWagon, setCurrentWagon] = useState<number>(1); // New state for the current wagon
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for the modal
 
   const handleSeatClick = (row: number, col: number) => {
     if (currentLayout[row][col].status === "unavailable") {
@@ -46,7 +46,7 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
     );
 
     setSelectedSeat({ row, col, number: randomSeatNumber });
-    setIsModalOpen(true); // Ouvrir la modal
+    setIsModalOpen(true); // Open the modal
   };
 
   const handleConfirm = () => {
@@ -74,12 +74,12 @@ const SeatLayout: React.FC<SeatLayoutProps> = ({ layout, onSeatClick }) => {
 
   const handleWagonChange = (wagon: number) => {
     console.log(`Changed to wagon ${wagon}`);
-    setCurrentWagon(wagon); // Mise à jour du numéro de wagon en cours
+    setCurrentWagon(wagon); // Update wagon's numero
 
     const newLayout = originalLayout.map((row) =>
       row.map((seat) => {
         if (seat.status === "invisible") {
-          return seat; // Les sièges invisibles ne changent pas
+          return seat; // Don't move invisible seats
         }
         return Math.random() < 0.5
           ? { ...seat, status: "available" }
